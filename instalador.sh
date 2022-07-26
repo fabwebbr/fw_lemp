@@ -62,6 +62,8 @@ password=$password_db
 EOF
  echo "MySQL: Instalação do MySQL concluída com sucesso"
 
+wget https://github.com/fabwebbr/lemp_fw/raw/main/modelo-vhost-nginx.txt -O /root/modelo-vhost-nginx.txt
+
 clear
 echo "-----------------------------------------------------------------"
 echo "                     Instalação concluída                        "
