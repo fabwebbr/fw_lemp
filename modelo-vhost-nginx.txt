@@ -1,0 +1,23 @@
+server {
+
+    listen 80; # Porta que o Nginx trabalhará (Padrão = 80)
+
+    # Substitua "SEU-DOMINIO.com" por seu domínio
+    server_name SEU-DOMINIO.com www.SEU-DOMINIO.com;
+
+    # Pasta onde os arquivos do site estão
+    root /var/www/html;
+
+    # Ordem de carregamento dos arquivos index (index.php é prioridade)
+    index index.php index.html;
+
+	location ~ \.php$ {
+		fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+		include snippets/fastcgi-php.conf;
+	}
+
+    location / {
+       try_files $uri $uri/ /index.php?$args;
+    }
+
+}
